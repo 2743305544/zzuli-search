@@ -29,8 +29,9 @@
     -fx-effect: dropshadow(gaussian, rgba(0, 119, 255, 0.5), 10, 0, 0, 0); /* 背景阴影 */
 }
 
-.button:hover {
+.mfx-button:hover {
     -fx-text-fill: white; /* 悬停时文本颜色 */
+    -mfx-auto-clip: true;
 }
 
 /*.button::before {*/

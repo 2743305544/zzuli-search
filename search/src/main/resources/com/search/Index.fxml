@@ -9,7 +9,7 @@
    <children>
       <FlowPane fx:id="FlowPane" hgap="20.0" layoutX="146.0" layoutY="69.0" prefHeight="454.0" prefWidth="747.0" vgap="40.0">
          <children>
-            <MFXButton fx:id="button1" prefHeight="132.0" prefWidth="140.0" text="公告通知" />
+            <MFXButton fx:id="button1" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="132.0" prefWidth="140.0" text="公告通知" />
             <MFXButton fx:id="button2" prefHeight="132.0" prefWidth="140.0" text="信息快递" />
             <MFXButton fx:id="button3" prefHeight="132.0" prefWidth="140.0" text="网络公告" />
             <MFXButton fx:id="button4" prefHeight="132.0" prefWidth="140.0" text="教学信息" />

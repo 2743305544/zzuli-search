@@ -1,14 +1,19 @@
 package com.search;
 
+import animatefx.animation.BounceIn;
+import animatefx.animation.Swing;
 import com.search.dynamic.DynamicWave;
 import com.search.dynamic.FadeTransitionTools;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.animation.AnimationTimer;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -26,6 +31,8 @@ public class IndexController implements Initializable {
     @FXML
     private AnchorPane indexPane;
 
+    private Boolean isTriggered = false;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         FadeTransitionTools.fadeout(indexPane);
@@ -42,5 +49,21 @@ public class IndexController implements Initializable {
             wavePane.getChildren().add(canvas);
             indexPane.getChildren().add(wavePane);
         }).start();
+    }
+    /**
+     * 按钮动态效果
+     */
+    @FXML
+    public void buttonEntered(MouseEvent event) {
+        if(!isTriggered){
+            new Swing(button1).play();
+            isTriggered = true;
+        }
+    }
+    @FXML
+    public void buttonExited(MouseEvent event) {
+        if(isTriggered){
+            isTriggered = false;
+        }
     }
 }
