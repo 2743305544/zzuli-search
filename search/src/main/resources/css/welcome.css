@@ -1,0 +1,62 @@
+#WelcomePane {
+    -fx-background: #606c88;
+    -fx-background: -webkit-linear-gradient(to right, #3f4c6b, #606c88);
+    -fx-background: linear-gradient(to right, #3f4c6b, #606c88);
+    -fx-border-radius: 10px;
+    -fx-box-shadow: 0px 87px 78px -39px rgba(0, 0, 0, 0.4);
+    -fx-max-width: 320px;
+}
+
+#title {
+    -fx-font-size: 5em; /* JavaFX 中使用 em 或 pt 单位，rem 不能直接使用 */
+    -fx-line-spacing: 2em; /* JavaFX 不支持 line-height，使用 line-spacing 代替 */
+    -fx-font-weight: Bold; /* JavaFX 中字体加粗使用 Bold */
+    -fx-letter-spacing: -0.025em; /* 字母间距，JavaFX 中直接使用 */
+    -fx-text-fill: white; /* 设置文字颜色为白色 */
+}
+/*#ToButton {*/
+/*    -fx-text-fill: white; !* 文字颜色 *!*/
+/*    -fx-font-weight: 600; !* 字体重量 *!*/
+/*    -fx-font-size: 1.25em; !* 使用 em 作为单位 *!*/
+/*    -fx-line-spacing: 1.25em; !* 不支持 line-height，使用 line-spacing 代替 *!*/
+/*    -fx-padding: 0.625em 0.875em; !* 设置内边距，JavaFX 使用 padding *!*/
+/*    -fx-background-color: rgb(99, 102, 241); !* 背景颜色 *!*/
+/*    -fx-background-radius: 0.375em; !* 边角圆度 *!*/
+/*    -fx-border-style: none; !* 去掉边框 *!*/
+/*    -fx-focus-color: transparent; !* 去掉焦点时的边框 *!*/
+/*    -fx-effect: null; !* 去掉默认的效果 *!*/
+/*    -mfx-depth-level: DepthLevel.LEVEL2;*/
+/*    -fx-icon-code: "anto-arrow-right";*/
+/*}*/
+.button {
+    -fx-background-color: #1875FF; /* 背景颜色 */
+    -fx-text-fill: white; /* 字体颜色 */
+    -fx-font-family: inherit; /* 字体设置 */
+    -fx-alignment: center; /* 对齐方式 */
+    -fx-font-size: 13px; /* 字号 */
+    -fx-background-radius: 7px; /* 圆角 */
+    -fx-effect: dropshadow(gaussian, rgba(24, 117, 255, 0.5), 56, 0, 0, 14); /* 阴影效果 */
+    -fx-min-width: 100px; /* 最小宽度，10em 约等于 100px */
+    -fx-padding: 1em; /* 内边距 */
+    -fx-cursor: hand; /* 手形光标 */
+    -fx-transition: all 0.4s; /* 过渡效果 */
+}
+
+.button .label {
+    -fx-cursor: hand; /* 手形光标 */
+    -fx-transition: 0.4s; /* 过渡效果 */
+    -fx-padding: 0; /* 内边距 */
+    -fx-text-alignment: center; /* 文本居中 */
+}
+
+.button:hover {
+    -fx-padding-right: 3.55em; /* 鼠标悬停时内边距变化 */
+}
+
+/*.button:hover .label:after {*/
+/*    !* JavaFX 不支持 :after 伪类，但可以使用其他方式实现 *!*/
+/*}*/
+
+/*!* 为了实现 'for free' 的效果，您可能需要在 JavaFX 中创建一个额外的标签或图形 *!*/
+
+

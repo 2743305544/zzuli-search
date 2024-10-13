@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.mfxcore.controls.Label?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="WelcomePane" maxWidth="1040.0" prefHeight="620.0" prefWidth="1040.0" stylesheets="@../../css/welcome.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.search.HelloController">
+   <children>
+      <Label fx:id="title" alignment="CENTER" layoutX="-2.0" layoutY="120.0" prefHeight="78.0" prefWidth="1012.0" stylesheets="@../../css/welcome.css" text="ZZULI SEARCH" textAlignment="RIGHT" textFill="#edf0f2">
+         <font>
+            <Font name="Lucida Console" size="33.0" />
+         </font>
+      </Label>
+      <Label layoutX="698.0" layoutY="198.0" prefHeight="15.0" prefWidth="64.0" text="bate 0.1">
+         <font>
+            <Font name="Lucida Console" size="13.0" />
+         </font>
+      </Label>
+      <MFXButton fx:id="ToButton" buttonType="RAISED" depthLevel="LEVEL3" layoutX="454.0" layoutY="387.0" onAction="#ToButtonClicked" prefHeight="31.0" prefWidth="110.0" text="Start">
+         <font>
+            <Font name="Lucida Console" size="15.0" />
+         </font>
+      </MFXButton>
+      <AnchorPane fx:id="twoPane" layoutY="436.0" prefHeight="184.0" prefWidth="1010.0" />
+   </children>
+   <effect>
+      <Lighting>
+         <bumpInput>
+            <Shadow height="47.38" radius="22.457500000000003" width="44.45" />
+         </bumpInput>
+<!--         <light>-->
+<!--            <Light.Distant />-->
+<!--         </light>-->
+      </Lighting>
+   </effect>
+</AnchorPane>

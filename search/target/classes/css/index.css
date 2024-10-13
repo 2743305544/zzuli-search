@@ -1,0 +1,52 @@
+#indexPane {
+    -fx-border-color: #e8e8e8;
+    -fx-border-width: 2;
+    /*-fx-padding: 15;*/
+    -fx-background-color: #212121;
+    -fx-font-size: small;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-background-radius: 10;
+}
+
+#indexPane:focused {
+    -fx-border-color: white; /* 这里用边框颜色来代替 outline */
+    -fx-background-color: #212121;
+    -fx-text-fill: #e8e8e8; /* 文本颜色 */
+    -fx-effect: dropshadow(gaussian, #888888, 5, 0, 5, 5); /* 阴影效果 */
+}
+.button {
+    -fx-background-color: transparent; /* 按钮背景透明 */
+    -fx-text-fill: #0077ff; /* 文本颜色 */
+    -fx-font-family: inherit; /* 继承字体 */
+    -fx-padding: 0; /* 内边距 */
+    /*-fx-pref-width: 6em; !* 按钮宽度 *!*/
+    /*-fx-pref-height: 2.6em; !* 按钮高度 *!*/
+    -fx-font-size: 17px; /* 字体大小 */
+    -fx-border-color: #0077ff; /* 边框颜色 */
+    -fx-border-width: 2; /* 边框宽度 */
+    -fx-background-radius: 6; /* 圆角半径 */
+    -fx-effect: dropshadow(gaussian, rgba(0, 119, 255, 0.5), 10, 0, 0, 0); /* 背景阴影 */
+}
+
+.button:hover {
+    -fx-text-fill: white; /* 悬停时文本颜色 */
+}
+
+/*.button::before {*/
+/*    -fx-background-color: #0077ff; !* 背景颜色 *!*/
+/*    -fx-min-width: 150px; !* 最小宽度 *!*/
+/*    -fx-min-height: 200px; !* 最小高度 *!*/
+/*    -fx-background-radius: 50%; !* 圆形背景 *!*/
+/*    -fx-layoutX: 100%; !* 初始位置水平偏移 *!*/
+/*    -fx-layoutY: 100%; !* 初始位置垂直偏移 *!*/
+/*    -fx-opacity: 0; !* 初始不透明度为 0 *!*/
+/*    -fx-effect: dropshadow(gaussian, #0077ff, 10, 0, 0, 0); !* 阴影效果 *!*/
+/*    -fx-transition: all 0.3s; !* 过渡效果 *!*/
+/*}*/
+
+/*.button:hover::before {*/
+/*    -fx-layoutX: -30px; !* 悬停时移动 *!*/
+/*    -fx-layoutY: -30px; !* 悬停时移动 *!*/
+/*    -fx-opacity: 1; !* 悬停时不透明度为 1 *!*/
+/*}*/
