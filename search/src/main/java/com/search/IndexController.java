@@ -1,9 +1,12 @@
 package com.search;
 
 import animatefx.animation.BounceIn;
+import animatefx.animation.BounceInDown;
 import animatefx.animation.Swing;
+import animatefx.animation.Wobble;
 import com.search.dynamic.DynamicWave;
 import com.search.dynamic.FadeTransitionTools;
+import com.search.utils.Jumputils;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
@@ -56,7 +59,7 @@ public class IndexController implements Initializable {
     @FXML
     public void buttonEntered(MouseEvent event) {
         if(!isTriggered){
-            new Swing(button1).play();
+            new Wobble((Node) event.getSource()).play();
             isTriggered = true;
         }
     }
@@ -65,5 +68,38 @@ public class IndexController implements Initializable {
         if(isTriggered){
             isTriggered = false;
         }
+    }
+    @FXML
+    public void Button1Clicked(ActionEvent event) {
+        FadeTransitionTools.fade(indexPane);
+        Jumputils.Jump("Msg.fxml",event);
+    }
+    @FXML
+    public void Button2Clicked(ActionEvent event) {
+
+    }
+    @FXML
+    public void Button3Clicked(ActionEvent event) {
+
+    }
+    @FXML
+    public void Button4Clicked(ActionEvent event) {
+
+    }
+    @FXML
+    public void Button5Clicked(ActionEvent event) {
+
+    }
+    @FXML
+    public void Button6Clicked(ActionEvent event) {
+
+    }
+    @FXML
+    public void Button7Clicked(ActionEvent event) {
+
+    }
+    @FXML
+    public void Button8Clicked(ActionEvent event) {
+
     }
 }

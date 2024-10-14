@@ -9,14 +9,14 @@
    <children>
       <FlowPane fx:id="FlowPane" hgap="20.0" layoutX="146.0" layoutY="69.0" prefHeight="454.0" prefWidth="747.0" vgap="40.0">
          <children>
-            <MFXButton fx:id="button1" prefHeight="132.0" prefWidth="140.0" text="公告通知" />
-            <MFXButton fx:id="button2" prefHeight="132.0" prefWidth="140.0" text="信息快递" />
-            <MFXButton fx:id="button3" prefHeight="132.0" prefWidth="140.0" text="网络公告" />
-            <MFXButton fx:id="button4" prefHeight="132.0" prefWidth="140.0" text="教学信息" />
-            <MFXButton fx:id="button5" prefHeight="132.0" prefWidth="140.0" text="学工信息" />
-            <MFXButton fx:id="button6" prefHeight="132.0" prefWidth="140.0" text="科研信息" />
-            <MFXButton fx:id="button7" prefHeight="132.0" prefWidth="140.0" text="学术报告" />
-            <MFXButton fx:id="button8" prefHeight="132.0" prefWidth="140.0" text="关于我们">
+            <MFXButton fx:id="button1" onAction="#Button1Clicked" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="132.0" prefWidth="140.0" text="公告通知" />
+            <MFXButton fx:id="button2" onAction="#Button2Clicked" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="132.0" prefWidth="140.0" text="信息快递" />
+            <MFXButton fx:id="button3" onAction="#Button3Clicked" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="132.0" prefWidth="140.0" text="网络公告" />
+            <MFXButton fx:id="button4" onAction="#Button4Clicked" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="132.0" prefWidth="140.0" text="教学信息" />
+            <MFXButton fx:id="button5" onAction="#Button5Clicked" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="132.0" prefWidth="140.0" text="学工信息" />
+            <MFXButton fx:id="button6" onAction="#Button6Clicked" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="132.0" prefWidth="140.0" text="科研信息" />
+            <MFXButton fx:id="button7" onAction="#Button7Clicked" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="132.0" prefWidth="140.0" text="学术报告" />
+            <MFXButton fx:id="button8" onAction="#Button8Clicked" onMouseEntered="#buttonEntered" onMouseExited="#buttonExited" prefHeight="132.0" prefWidth="140.0" text="关于我们">
                <FlowPane.margin>
                   <Insets />
                </FlowPane.margin>
