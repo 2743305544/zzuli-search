@@ -4,6 +4,7 @@ import animatefx.animation.*;
 import animatefx.util.ParallelAnimationFX;
 import animatefx.util.SequentialAnimationFX;
 
+import com.search.constant.SystemConstants;
 import com.search.dynamic.DynamicWave;
 import com.search.dynamic.FadeTransitionTools;
 import com.search.utils.Jumputils;
@@ -46,7 +47,7 @@ public class HelloController implements Initializable {
     @FXML
     public void ToButtonClicked(ActionEvent event) {
         FadeTransitionTools.fade(WelcomePane);
-        Jumputils.Jump("index.fxml",event);
+        Jumputils.Jump(SystemConstants.INDEX_PAGE_NAME,event);
         // 播放动画
     }
 

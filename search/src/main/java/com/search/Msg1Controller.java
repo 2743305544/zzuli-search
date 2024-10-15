@@ -29,5 +29,6 @@ public class Msg1Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         FadeTransitionTools.fadeout(indexPane);
+        MyLabel.setText("公告通知");
     }
 }

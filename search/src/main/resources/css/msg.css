@@ -15,20 +15,67 @@
     -fx-text-fill: #e8e8e8; /* 文本颜色 */
     -fx-effect: dropshadow(gaussian, #888888, 5, 0, 5, 5); /* 阴影效果 */
 }
+/*.button {*/
+/*    -fx-border-color: #24b4fb;*/
+/*    -fx-border-width: 2px;*/
+/*    -fx-background-color: #24b4fb;*/
+/*    -fx-background-radius: 0.9em;*/
+/*    -fx-padding: 0.8em 1.2em 0.8em 1em;*/
+/*    -fx-font-size: 16px;*/
+/*    -fx-text-fill: white;*/
+/*    -fx-font-weight: bold;*/
+/*    -fx-cursor: hand;*/
+/*    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 2, 0, 1, 1);*/
+/*    -fx-transition: 0.2s;*/
+/*}*/
+
+/*.button:hover {*/
+/*    -fx-background-color: #0071e2;*/
+/*}*/
+/* Button 样式 */
+/*.button {*/
+/*    -fx-text-fill: #090909;*/
+/*    -fx-padding: 0.7em 1.7em;*/
+/*    -fx-font-size: 10px;*/
+/*    -fx-background-radius: 0.5em;*/
+/*    -fx-background-color: #e8e8e8;*/
+/*    -fx-cursor: hand;*/
+/*    -fx-border-color: #e8e8e8;*/
+/*    -fx-border-width: 1px;*/
+/*    -fx-transition: all 0.3s;*/
+/*    -fx-effect: dropshadow(gaussian, #c5c5c5, 12, 6, 6, 6);*/
+/*}*/
+
+/*.button:hover {*/
+/*    -fx-border-color: white; !* 鼠标悬停时的边框色 *!*/
+/*}*/
+
+/*.button:pressed {*/
+/*    -fx-effect: dropshadow(gaussian, #c5c5c5, 12, 4, 4, 4);*/
+/*}*/
 .button {
-    -fx-border-color: #24b4fb;
-    -fx-border-width: 2px;
-    -fx-background-color: #24b4fb;
-    -fx-background-radius: 0.9em;
-    -fx-padding: 0.8em 1.2em 0.8em 1em;
-    -fx-font-size: 16px;
-    -fx-text-fill: white;
+    -fx-padding: 12.5px 30px;
+    -fx-background-color: #2ba8fb;
+    -fx-text-fill: #ffffff;
     -fx-font-weight: bold;
-    -fx-cursor: hand;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 2, 0, 1, 1);
-    -fx-transition: 0.2s;
+    -fx-background-radius: 100px;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-transition: all 0.5s; /* 注意：在JavaFX中，过渡效果通常在Java代码中实现，而不是CSS中 */
 }
 
 .button:hover {
-    -fx-background-color: #0071e2;
+    -fx-background-color: #6fc5ff;
+    -fx-effect: dropshadow(gaussian, rgba(111, 197, 255, 0.5), 20, 0, 0, 0);
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1; /* 在JavaFX中，transform通常是通过行为或效果来实现的 */
 }
+
+.button:pressed {
+    -fx-background-color: #3d94cf;
+    -fx-effect: none;
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+    -fx-transition: all 0.25s; /* 过渡效果通常不通过CSS定义 */
+}
+

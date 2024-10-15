@@ -4,6 +4,7 @@ import animatefx.animation.BounceIn;
 import animatefx.animation.BounceInDown;
 import animatefx.animation.Swing;
 import animatefx.animation.Wobble;
+import com.search.constant.SystemConstants;
 import com.search.dynamic.DynamicWave;
 import com.search.dynamic.FadeTransitionTools;
 import com.search.utils.Jumputils;
@@ -72,7 +73,7 @@ public class IndexController implements Initializable {
     @FXML
     public void Button1Clicked(ActionEvent event) {
         FadeTransitionTools.fade(indexPane);
-        Jumputils.Jump("Msg.fxml",event);
+        Jumputils.Jump(SystemConstants.ANNOUNCEMENT_PAGE_NAME,event);
     }
     @FXML
     public void Button2Clicked(ActionEvent event) {

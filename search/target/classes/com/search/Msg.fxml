@@ -4,6 +4,7 @@
 <?import io.github.palexdev.materialfx.controls.MFXListView?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import io.github.palexdev.mfxcore.controls.Label?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -15,7 +16,16 @@
          </font>
       </Label>
       <MFXListView fx:id="List" layoutX="314.0" layoutY="208.0" prefHeight="350.0" prefWidth="412.0" />
-      <MFXTextField fx:id="TextField" layoutX="314.0" layoutY="165.0" prefHeight="33.0" prefWidth="412.0" />
-      <MFXButton fx:id="searchButton" layoutX="735.0" layoutY="170.0" prefHeight="33.0" prefWidth="73.0" />
+      <MFXTextField fx:id="TextField" layoutX="314.0" layoutY="145.0" prefHeight="33.0" prefWidth="412.0">
+         <font>
+            <Font name="Lucida Console" size="17.0" />
+         </font></MFXTextField>
+      <MFXButton fx:id="searchButton" layoutX="735.0" layoutY="174.0" prefHeight="40.0" prefWidth="113.0" text="Search">
+         <font>
+            <Font name="Lucida Console" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></MFXButton>
    </children>
 </AnchorPane>

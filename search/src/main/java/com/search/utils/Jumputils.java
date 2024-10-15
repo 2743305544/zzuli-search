@@ -23,6 +23,5 @@ public class Jumputils {
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setScene(subPageScene);
         window.show();
-
     }
 }
