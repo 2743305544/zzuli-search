@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="indexPane" prefHeight="620.0" prefWidth="1040.0" stylesheets="@../../css/msg.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.search.Msg1Controller">
+<AnchorPane fx:id="indexPane" prefHeight="620.0" prefWidth="1040.0" stylesheets="@../../css/msg.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.search.Msg5Controller">
    <children>
       <Label fx:id="MyLabel" layoutX="3.0" layoutY="8.0" prefHeight="65.0" prefWidth="514.0" text="MSG" textAlignment="CENTER" textFill="#d3d0d0" AnchorPane.bottomAnchor="559.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="525.0" AnchorPane.topAnchor="6.0">
          <font>

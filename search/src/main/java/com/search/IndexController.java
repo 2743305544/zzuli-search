@@ -77,30 +77,37 @@ public class IndexController implements Initializable {
     }
     @FXML
     public void Button2Clicked(ActionEvent event) {
-
+        FadeTransitionTools.fade(indexPane);
+        Jumputils.Jump(SystemConstants.INFORMATION_PAGE_NAME,event);
     }
     @FXML
     public void Button3Clicked(ActionEvent event) {
-
+        FadeTransitionTools.fade(indexPane);
+        Jumputils.Jump(SystemConstants.INTERNET_PAGE_NAME,event);
     }
     @FXML
     public void Button4Clicked(ActionEvent event) {
-
+        FadeTransitionTools.fade(indexPane);
+        Jumputils.Jump(SystemConstants.TEACHING_PAGE_NAME,event);
     }
     @FXML
     public void Button5Clicked(ActionEvent event) {
-
+        FadeTransitionTools.fade(indexPane);
+        Jumputils.Jump(SystemConstants.STUDENT_ENGINEERED_PAGE_NAME,event);
     }
     @FXML
     public void Button6Clicked(ActionEvent event) {
-
+        FadeTransitionTools.fade(indexPane);
+        Jumputils.Jump(SystemConstants.SCIENTIFIC_RESEARCH_PAGE_NAME,event);
     }
     @FXML
     public void Button7Clicked(ActionEvent event) {
-
+        FadeTransitionTools.fade(indexPane);
+        Jumputils.Jump(SystemConstants.ACADEMIC_PAGE_NAME,event);
     }
     @FXML
     public void Button8Clicked(ActionEvent event) {
-
+        FadeTransitionTools.fade(indexPane);
+        Jumputils.Jump(SystemConstants.ABOUT_PAGE_NAME,event);
     }
 }

@@ -20,12 +20,13 @@
          <font>
             <Font name="Lucida Console" size="17.0" />
          </font></MFXTextField>
-      <MFXButton fx:id="searchButton" layoutX="735.0" layoutY="174.0" prefHeight="40.0" prefWidth="113.0" text="Search">
+      <MFXButton fx:id="searchButton" layoutX="735.0" layoutY="150.0" prefHeight="40.0" prefWidth="113.0" text="Search">
          <font>
             <Font name="Lucida Console" size="17.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></MFXButton>
+      <MFXButton fx:id="BackButton" layoutX="971.0" layoutY="591.0" text="Back" />
    </children>
 </AnchorPane>

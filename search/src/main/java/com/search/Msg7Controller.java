@@ -14,12 +14,11 @@ import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.ResourceBundle;
 
 import static com.search.utils.Listutils.ListItemsToObservableList;
 
-public class Msg1Controller implements Initializable {
+public class Msg7Controller implements Initializable {
     @FXML
     private MFXTextField TextField;
     @FXML
@@ -45,6 +44,6 @@ public class Msg1Controller implements Initializable {
         items.add(new Items("11","11"));
         ObservableList<String> DataList = ListItemsToObservableList(strList,items);
         List.setItems(DataList);
-        MyLabel.setText("公告通知");
+        MyLabel.setText("学术报告");
     }
 }

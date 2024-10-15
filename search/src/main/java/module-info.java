@@ -14,6 +14,7 @@ module com.search {
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
     requires MaterialFX;
+    requires static lombok;
 
     opens com.search to javafx.fxml;
     exports com.search;

@@ -41,6 +41,14 @@
       <artifactId>materialfx</artifactId>
       <version>11.17.0</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.34</version>
+      <scope>provided</scope>
+    </dependency>
+
     <dependency>
       <groupId>org.kordamp.ikonli</groupId>
       <artifactId>ikonli-antdesignicons-pack</artifactId>
