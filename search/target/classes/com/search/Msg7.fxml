@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXListView?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import io.github.palexdev.mfxcore.controls.Label?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="indexPane" prefHeight="620.0" prefWidth="1040.0" stylesheets="@../../css/msg.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.search.Msg7Controller">
+   <children>
+      <Label fx:id="MyLabel" layoutX="3.0" layoutY="8.0" prefHeight="65.0" prefWidth="514.0" text="MSG" textAlignment="CENTER" textFill="#d3d0d0" AnchorPane.bottomAnchor="559.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="525.0" AnchorPane.topAnchor="6.0">
+         <font>
+            <Font name="Lucida Console" size="58.0" />
+         </font>
+      </Label>
+      <MFXListView fx:id="List" layoutX="314.0" layoutY="208.0" prefHeight="350.0" prefWidth="412.0" />
+      <MFXTextField fx:id="TextField" layoutX="314.0" layoutY="145.0" prefHeight="33.0" prefWidth="412.0">
+         <font>
+            <Font name="Lucida Console" size="17.0" />
+         </font></MFXTextField>
+      <MFXButton fx:id="searchButton" layoutX="735.0" layoutY="150.0" prefHeight="40.0" prefWidth="113.0" text="Search">
+         <font>
+            <Font name="Lucida Console" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></MFXButton>
+      <MFXButton fx:id="BackButton" layoutX="971.0" layoutY="591.0" text="Back" />
+   </children>
+</AnchorPane>
