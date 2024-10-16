@@ -27,6 +27,6 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></MFXButton>
-      <MFXButton fx:id="BackButton" layoutX="971.0" layoutY="591.0" text="Back" />
+      <MFXButton fx:id="BackButton" layoutX="971.0" layoutY="591.0" onAction="#Back" text="Back" />
    </children>
 </AnchorPane>
