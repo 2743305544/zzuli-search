@@ -2,11 +2,13 @@ package com.search;
 
 import com.search.dynamic.FadeTransitionTools;
 import com.search.entry.Items;
+import com.search.utils.Jumputils;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXListView;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -45,5 +47,10 @@ public class Msg6Controller implements Initializable {
         ObservableList<String> DataList = ListItemsToObservableList(strList,items);
         List.setItems(DataList);
         MyLabel.setText("科研信息");
+    }
+    @FXML
+    public void Back(ActionEvent event) {
+        FadeTransitionTools.fade(indexPane);
+        Jumputils.Jump("Index.fxml",event);
     }
 }
