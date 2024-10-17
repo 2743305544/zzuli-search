@@ -1,7 +1,9 @@
 package com.search;
 
+import com.search.constant.SystemConstants;
 import com.search.dynamic.FadeTransitionTools;
 import com.search.entry.Items;
+import com.search.utils.Jsutils;
 import com.search.utils.Jumputils;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXListView;
@@ -11,8 +13,15 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TouchEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -52,6 +61,22 @@ public class Msg1Controller implements Initializable {
     @FXML
     public void Back(ActionEvent event) {
         FadeTransitionTools.fade(indexPane);
-        Jumputils.Jump("Index.fxml",event);
+        Jumputils.Jump(SystemConstants.INDEX_PAGE_NAME,event);
+    }
+    @FXML
+    public void ListClicked(MouseEvent event) {
+        System.out.println(List.getSelectionModel().getSelectedValue());
+        Stage WebStage = new Stage();
+        WebView webView = new WebView();
+        WebEngine webEngine = webView.getEngine();
+        webEngine.setJavaScriptEnabled(true);
+        webEngine.executeScript(Jsutils.readJsFileAsString("h5player.js"));
+        webEngine.setUserAgent("Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 Chrome/44.0.2403.155 Safari/537.36");
+        webEngine.load("https://info.zzuli.edu.cn/_t961/2024/1014/c2464a321063/page.htm");
+        StackPane webRoot = new StackPane();
+        webRoot.getChildren().add(webView);
+        Scene webScene = new Scene(webRoot,1040,620);
+        WebStage.setScene(webScene);
+        WebStage.show();
     }
 }

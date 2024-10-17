@@ -15,7 +15,7 @@
             <Font name="Lucida Console" size="58.0" />
          </font>
       </Label>
-      <MFXListView fx:id="List" layoutX="314.0" layoutY="208.0" prefHeight="350.0" prefWidth="412.0" />
+      <MFXListView fx:id="List" layoutX="314.0" layoutY="208.0" onMouseClicked="#ListClicked" prefHeight="350.0" prefWidth="412.0" />
       <MFXTextField fx:id="TextField" layoutX="314.0" layoutY="145.0" prefHeight="33.0" prefWidth="412.0">
          <font>
             <Font name="Lucida Console" size="17.0" />

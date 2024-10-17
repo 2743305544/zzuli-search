@@ -1,5 +1,6 @@
 package com.search;
 
+import com.search.constant.SystemConstants;
 import com.search.dynamic.FadeTransitionTools;
 import com.search.entry.Items;
 import com.search.utils.Jumputils;
@@ -51,6 +52,6 @@ public class Msg4Controller implements Initializable {
     @FXML
     public void Back(ActionEvent event) {
         FadeTransitionTools.fade(indexPane);
-        Jumputils.Jump("Index.fxml",event);
+        Jumputils.Jump(SystemConstants.INDEX_PAGE_NAME,event);
     }
 }

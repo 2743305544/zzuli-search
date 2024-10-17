@@ -1,5 +1,6 @@
 package com.search;
 
+import com.search.constant.SystemConstants;
 import com.search.dynamic.FadeTransitionTools;
 import com.search.entry.Items;
 import com.search.utils.Jumputils;
@@ -12,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
@@ -51,6 +53,11 @@ public class Msg7Controller implements Initializable {
     @FXML
     public void Back(ActionEvent event) {
         FadeTransitionTools.fade(indexPane);
-        Jumputils.Jump("Index.fxml",event);
+        Jumputils.Jump(SystemConstants.INDEX_PAGE_NAME,event);
+
+    }
+    @FXML
+    public void ListClicked(MouseEvent event) {
+
     }
 }
