@@ -15,6 +15,7 @@ module com.search {
     requires com.almasb.fxgl.all;
     requires MaterialFX;
     requires static lombok;
+    requires java.management;
 
     opens com.search to javafx.fxml;
     exports com.search;

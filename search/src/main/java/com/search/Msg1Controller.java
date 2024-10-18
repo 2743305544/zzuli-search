@@ -70,7 +70,7 @@ public class Msg1Controller implements Initializable {
         WebView webView = new WebView();
         WebEngine webEngine = webView.getEngine();
         webEngine.setJavaScriptEnabled(true);
-        webEngine.executeScript(Jsutils.readJsFileAsString("h5player.js"));
+//        webEngine.executeScript(Jsutils.readJsFileAsString("h5player.js"));//加载脚本
         webEngine.setUserAgent("Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 Chrome/44.0.2403.155 Safari/537.36");
         webEngine.load("https://info.zzuli.edu.cn/_t961/2024/1014/c2464a321063/page.htm");
         StackPane webRoot = new StackPane();
