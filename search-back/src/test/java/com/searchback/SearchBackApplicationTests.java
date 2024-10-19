@@ -22,6 +22,7 @@ class SearchBackApplicationTests {
 //        Boolean zzuliData = documentMapper.createIndex("zzuliData");
 //        System.out.println(zzuliData);
         htmlParseUtil.ParseHtml(webClient);
+        webClient.close();
     }
 
 }
