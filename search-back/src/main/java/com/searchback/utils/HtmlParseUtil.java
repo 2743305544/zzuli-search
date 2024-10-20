@@ -18,6 +18,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
+/**
+ * @author 34011 shiyi
+ */
 @Component
 public class HtmlParseUtil {
     private static final String firstUrl = UrlConstants.ORIGINAL_SEARCH_HTML;
@@ -32,7 +35,7 @@ public class HtmlParseUtil {
     @Resource(name = "ThreadPoolExecutor")
     private ExecutorService executorService;
 
-    private Integer AllPageNum;
+    private Integer allPageNum;
 
     @Autowired
     public HtmlParseUtil(ApplicationContext applicationContext) {
@@ -41,7 +44,7 @@ public class HtmlParseUtil {
 
     private char replaceChar;
 
-    public  List<Content> ParseHtml(WebClient webClient) {
+    public  List<Content> parseHtml(WebClient webClient) {
         Document document = null;
         try {
             HtmlPage page = webClient.getPage(firstUrl);
@@ -57,9 +60,9 @@ public class HtmlParseUtil {
 
         Element first = document.getElementById("warmp").getElementsByClass("xx").getFirst().getElementById("wp_paging_w2").getElementsByClass("all_pages").getFirst();
         System.out.println(first.text());
-        AllPageNum = Integer.valueOf(first.text());
+        allPageNum = Integer.valueOf(first.text());
         List<Content> contentList = crawlAllPage(3);
-        System.out.println(contentList);
+//        System.out.println(contentList);
         return contentList;
     }
     private List<Content> crawlAllPage(Integer AllPageNum) {
@@ -72,8 +75,7 @@ public class HtmlParseUtil {
                 String newUrl = replaceLastOccurrence(afterUrl, indexChar, (char) (num+'0'));
 //            System.out.println("111111111111111111111111111111111111111111111111111111"+newUrl);
                 Document document = null;
-                WebClient NewwebClient = applicationContext.getBean(WebClient.class);
-                try {
+                try (WebClient NewwebClient = applicationContext.getBean(WebClient.class);){
                     HtmlPage page = NewwebClient.getPage(newUrl);
                     NewwebClient.waitForBackgroundJavaScript(5000);
                     document = Jsoup.parse(page.asXml());
@@ -88,7 +90,6 @@ public class HtmlParseUtil {
                     String Date = tr.getElementsByTag("div").getFirst().text();
                     tempContentList.add(new Content(title, Date, preUrl + url));
                 }
-                NewwebClient.close();
                 return tempContentList;
             };
             futures.add(executorService.submit(task));
@@ -106,11 +107,15 @@ public class HtmlParseUtil {
     private String replaceLastOccurrence(String str, Character target, Character replacement) {
         int lastIndex = str.lastIndexOf(target);
         if (lastIndex == -1) {
-            return str; // 如果没有找到目标字符，返回原字符串
+            // 如果没有找到目标字符，返回原字符串
+            return str;
         }
-        String before = str.substring(0, lastIndex); // 取出目标字符之前的部分
-        String after = str.substring(lastIndex + 1); // 取出目标字符之后的部分
-        return before + replacement + after; // 重新组合字符串
+        // 取出目标字符之前的部分
+        String before = str.substring(0, lastIndex);
+        // 取出目标字符之后的部分
+        String after = str.substring(lastIndex + 1);
+        // 重新组合字符串
+        return before + replacement + after;
     }
 
 }

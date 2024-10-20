@@ -23,6 +23,9 @@ import java.util.Map;
 import java.util.Objects;
 
 
+/**
+ * @author 34011 shiyi
+ */
 @Slf4j
 @Component
 public class EsIndexUtil {
@@ -54,7 +57,7 @@ public class EsIndexUtil {
      * @return 是否创建成功
      * @throws IOException 异常信息
      */
-    public boolean createIndex(String indexName) throws IOException {
+    public  boolean createIndex(String indexName) throws IOException {
         if (isExistedIndex(indexName)) {
             deleteIndex(indexName);
         }

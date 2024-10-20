@@ -21,7 +21,7 @@ class SearchBackApplicationTests {
     void contextLoads() {
 //        Boolean zzuliData = documentMapper.createIndex("zzuliData");
 //        System.out.println(zzuliData);
-        htmlParseUtil.ParseHtml(webClient);
+        htmlParseUtil.parseHtml(webClient);
         webClient.close();
     }
 

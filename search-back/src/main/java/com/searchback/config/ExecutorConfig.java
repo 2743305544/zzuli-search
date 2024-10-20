@@ -9,6 +9,9 @@ import org.springframework.core.task.SimpleAsyncTaskExecutor;
 
 import java.util.concurrent.*;
 
+/**
+ * @author 34011 shiyi
+ */
 @Configuration
 public class ExecutorConfig {
     @Bean("ThreadPoolExecutor")
@@ -17,6 +20,6 @@ public class ExecutorConfig {
                 15,
                 60,
                 TimeUnit.SECONDS,
-                new LinkedBlockingQueue<>(2000));
+                new LinkedBlockingQueue<>(20000));
     }
 }
