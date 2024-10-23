@@ -28,7 +28,7 @@ public class HtmlParseUtil {
     private static String afterUrl = UrlConstants.ORIGINAL_SEARCH_HTML;
 
     private static String preUrl = UrlConstants.PRE_URL;
-    private  Character indexChar = UrlConstants.PAGE_CHAR;
+    private  String indexChar = UrlConstants.PAGE_CHAR;
 
     private final ApplicationContext applicationContext;
 
@@ -61,7 +61,7 @@ public class HtmlParseUtil {
         Element first = document.getElementById("warmp").getElementsByClass("xx").getFirst().getElementById("wp_paging_w2").getElementsByClass("all_pages").getFirst();
         System.out.println(first.text());
         allPageNum = Integer.valueOf(first.text());
-        List<Content> contentList = crawlAllPage(3);
+        List<Content> contentList = crawlAllPage(310);
 //        System.out.println(contentList);
         return contentList;
     }
@@ -72,7 +72,7 @@ public class HtmlParseUtil {
             final int num = target;
             Callable<List<Content>> task =()->{
                 List<Content> tempContentList = new ArrayList<>();
-                String newUrl = replaceLastOccurrence(afterUrl, indexChar, (char) (num+'0'));
+                String newUrl = replaceLastOccurrence(afterUrl, indexChar, String.valueOf(num));
 //            System.out.println("111111111111111111111111111111111111111111111111111111"+newUrl);
                 Document document = null;
                 try (WebClient NewwebClient = applicationContext.getBean(WebClient.class);){
@@ -104,7 +104,7 @@ public class HtmlParseUtil {
         executorService.shutdown();
         return contentList;
     }
-    private String replaceLastOccurrence(String str, Character target, Character replacement) {
+    private String replaceLastOccurrence(String str, String target, String replacement) {
         int lastIndex = str.lastIndexOf(target);
         if (lastIndex == -1) {
             // 如果没有找到目标字符，返回原字符串
@@ -113,9 +113,10 @@ public class HtmlParseUtil {
         // 取出目标字符之前的部分
         String before = str.substring(0, lastIndex);
         // 取出目标字符之后的部分
-        String after = str.substring(lastIndex + 1);
-        // 重新组合字符串
-        return before + replacement + after;
+        String after = str.substring(lastIndex);
+        // 重新组合字符串\
+        System.out.println(before + replacement + after.substring(target.length()));
+        return before + replacement + after.substring(target.length());
     }
 
 }

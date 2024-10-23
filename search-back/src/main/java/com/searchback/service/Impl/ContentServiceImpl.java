@@ -5,6 +5,7 @@ import com.searchback.service.ContentService;
 import com.searchback.utils.HtmlParseUtil;
 import com.searchback.utils.esutils.EsDocumentUtil;
 import com.searchback.utils.esutils.EsIndexUtil;
+import com.searchback.utils.esutils.EsQueryUtil;
 import jakarta.annotation.Resource;
 import org.htmlunit.WebClient;
 import org.springframework.stereotype.Service;
@@ -39,27 +40,54 @@ public class ContentServiceImpl implements ContentService {
     @Resource
     private HtmlParseUtil htmlParseUtil;
 
+    @Resource
+    private EsQueryUtil esQueryUtil;
+
     @Override
     public void refreshAllData(WebClient webClient) {
         try {
-            esIndexUtil.deleteIndex("Zzuli_data");
+            esIndexUtil.deleteIndex("zzuli_data");
         } catch (Exception e) {
             e.printStackTrace();
             logError(e);
         }
         try {
-            esIndexUtil.createIndex("Zzuli_data");
+            esIndexUtil.createIndex("zzuli_data");
         } catch (IOException e) {
             e.printStackTrace();
             logError(e);
         }
         List<Content> contentList = htmlParseUtil.parseHtml(webClient);
+        System.out.println(contentList);
         try {
-            esDocumentUtil.batchAddDocument("Zzuli_data",contentList);
+            esDocumentUtil.batchAddDocument("zzuli_data",contentList);
         } catch (Exception e) {
             e.printStackTrace();
             logError(e);
         }
+    }
+
+    @Override
+    public List<Content> getMsg1() {
+
+        try {
+            return esDocumentUtil.getAllDocument("zzuli_data",Content.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+            logError(e);
+        }
+        return null;
+    }
+
+    @Override
+    public List<Content> SearchMsg1(String searchText) {
+        try {
+            return esQueryUtil.termQuerySimple("zzuli_data",searchText,"title","date",true,Content.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+            logError(e);
+        }
+        return null;
     }
 
     private void logError(Exception e) {

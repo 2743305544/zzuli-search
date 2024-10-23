@@ -345,6 +345,36 @@ public class EsQueryUtil {
     }
 
     /**
+     * termQuery方法
+     *
+     * @param <T>          文档对象泛型
+     * @param indexName 索引名
+     * @param searchText 搜索内容
+     * @param searchField 要搜索的字段
+     * @param sortedField 要排序的字段
+     * @param isDesc 是否降序，true降序，false升序
+     * @param clazz 要搜索的文档对象class
+     * @return 泛型对象列表集合 list
+     * @throws IOException 异常信息
+     */
+    public <T> List<T> termQuerySimple(
+            String indexName,
+            String searchText,
+            String searchField,
+            String sortedField,
+            boolean isDesc,
+            Class<T> clazz)
+            throws IOException {
+        SearchResponse<T> response = elasticsearchClient.search(
+                s -> s.index(indexName)
+                        .query(q -> q.term(t -> t.field(searchField).value(searchText)))
+                        .sort(f -> f.field(o -> o.field(sortedField).order(isDesc ? SortOrder.Desc : SortOrder.Asc)))
+                        .size(200),
+                clazz);
+        return getSources(response);
+    }
+
+    /**
      * fuzzyQuery方法
      *
      * @param <T>          文档对象泛型

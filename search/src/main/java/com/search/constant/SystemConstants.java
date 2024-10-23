@@ -1,5 +1,8 @@
 package com.search.constant;
 
+/**
+ * @author 34011
+ */
 public class SystemConstants {
     public static final String TITLE = "Zzuli Search";
     public static final String INDEX_PAGE_NAME = "index.fxml";

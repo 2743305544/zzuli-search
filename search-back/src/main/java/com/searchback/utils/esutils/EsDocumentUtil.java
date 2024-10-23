@@ -3,6 +3,9 @@ package com.searchback.utils.esutils;
 
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
+import co.elastic.clients.elasticsearch._types.FieldSort;
+import co.elastic.clients.elasticsearch._types.SortOptions;
+import co.elastic.clients.elasticsearch._types.SortOrder;
 import co.elastic.clients.elasticsearch.core.*;
 import co.elastic.clients.elasticsearch.core.bulk.BulkResponseItem;
 import co.elastic.clients.elasticsearch.core.search.Hit;
@@ -108,7 +111,7 @@ public class EsDocumentUtil {
      * @throws IOException 异常信息
      */
     public <T> List<T> getAllDocument(String indexName, Class<T> clazz) throws IOException {
-        SearchResponse<T> searchResponse = elasticsearchClient.search(a -> a.index(indexName), clazz);
+        SearchResponse<T> searchResponse = elasticsearchClient.search(a -> a.index(indexName).sort(new SortOptions.Builder().field(new FieldSort.Builder().field("date").order(SortOrder.Desc).build()).build()).from(0).size(10), clazz);
 
         List<Hit<T>> hitList = getHitList(searchResponse);
 

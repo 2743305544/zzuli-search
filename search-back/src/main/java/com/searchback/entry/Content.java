@@ -12,6 +12,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Content {
     private String title;
-    private String Date;
+    private String date;
     private String url;
 }
