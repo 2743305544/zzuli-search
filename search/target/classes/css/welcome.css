@@ -40,6 +40,7 @@
     -fx-padding: 1em; /* 内边距 */
     -fx-cursor: hand; /* 手形光标 */
     -fx-transition: all 0.4s; /* 过渡效果 */
+    -fx-icon-code: "anto-forward";
 }
 
 .button .label {
@@ -47,10 +48,12 @@
     -fx-transition: 0.4s; /* 过渡效果 */
     -fx-padding: 0; /* 内边距 */
     -fx-text-alignment: center; /* 文本居中 */
+    -fx-icon-code: "anto-forward";
 }
 
 .button:hover {
     -fx-padding-right: 3.55em; /* 鼠标悬停时内边距变化 */
+    -fx-icon-code: "anto-forward";
 }
 
 /*.button:hover .label:after {*/
