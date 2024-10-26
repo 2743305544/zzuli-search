@@ -12,7 +12,6 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 <junit.version>5.10.2</junit.version>  </properties>
-
   <dependencies>
     <dependency>
       <groupId>org.openjfx</groupId>
@@ -69,7 +68,26 @@
         <artifactId>javafx-swing</artifactId>
         <version>17.0.6</version>
       </dependency>
-<dependency>
+    <!-- https://mvnrepository.com/artifact/com.alibaba.fastjson2/fastjson2 -->
+    <dependency>
+      <groupId>com.alibaba.fastjson2</groupId>
+      <artifactId>fastjson2</artifactId>
+      <version>2.0.53</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.alibaba.fastjson2/fastjson2-extension -->
+    <dependency>
+      <groupId>com.alibaba.fastjson2</groupId>
+      <artifactId>fastjson2-extension</artifactId>
+      <version>2.0.53</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.squareup.okhttp3/okhttp -->
+    <dependency>
+      <groupId>com.squareup.okhttp3</groupId>
+      <artifactId>okhttp</artifactId>
+      <version>4.12.0</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-media</artifactId>
       <version>17.0.6</version>
@@ -137,14 +155,80 @@
       <artifactId>junit-jupiter-engine</artifactId>
       <version>${junit.version}</version>
       <scope>test</scope>
-    </dependency>  </dependencies>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-beans</artifactId>
+      <version>6.1.14</version>
+      <scope>compile</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.17.0</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>2.0.16</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>2.0.16</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
 
   <build>
     <plugins>
+<!--      <plugin>-->
+<!--        <groupId>org.graalvm.buildtools</groupId>-->
+<!--        <artifactId>native-maven-plugin</artifactId>-->
+<!--        <version>0.10.3</version>-->
+<!--        <extensions>true</extensions>-->
+<!--        <executions>-->
+<!--          <execution>-->
+<!--            <id>build-native</id>-->
+<!--            <goals>-->
+<!--              <goal>compile-no-fork</goal>-->
+<!--            </goals>-->
+<!--            <phase>package</phase>-->
+<!--          </execution>-->
+<!--          <execution>-->
+<!--            <id>test-native</id>-->
+<!--            <goals>-->
+<!--              <goal>test</goal>-->
+<!--            </goals>-->
+<!--            <phase>test</phase>-->
+<!--          </execution>-->
+<!--        </executions>-->
+<!--        <configuration>-->
+<!--          &lt;!&ndash; 镜像名称 &ndash;&gt;&ndash;&gt;-->
+<!--          <agent>-->
+<!--            <enabled>true</enabled>-->
+<!--          </agent>-->
+<!--          <imageName>graal-vm-demo</imageName>-->
+<!--          &lt;!&ndash; 启动类 &ndash;&gt;-->
+<!--          <mainClass>com.search.HelloApplication</mainClass>-->
+<!--          <buildArgs>-->
+<!--            <buildArg>&#45;&#45;verbose</buildArg>-->
+<!--            <buildArg>-H:+AddAllCharsets</buildArg>-->
+<!--            <buildArg>-H:-AddAllFileSystemProviders</buildArg>-->
+<!--            <buildArg>-Dfile.encoding=GBK</buildArg>-->
+<!--            <buildArg>-H:EnableURLProtocols=http,https</buildArg>-->
+<!--          </buildArgs>-->
+<!--          <skipNativeTests>true</skipNativeTests>-->
+<!--          <verbose>true</verbose>-->
+<!--        </configuration>-->
+<!--      </plugin>-->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.13.0</version>
         <configuration>
           <source>23</source>
           <target>23</target>

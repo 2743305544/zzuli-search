@@ -1,6 +1,5 @@
 module com.search {
     requires javafx.web;
-    requires org.kordamp.ikonli.core;
     requires animatefx;
     requires javafx.controls;
     requires javafx.graphics;
@@ -15,8 +14,13 @@ module com.search {
     requires com.almasb.fxgl.all;
     requires MaterialFX;
     requires static lombok;
-    requires java.management;
-
+    requires org.kordamp.ikonli.antdesignicons;
+    requires org.kordamp.ikonli.core;
+    requires spring.beans;
+    requires org.apache.commons.io;
+    requires okhttp3;
+    requires com.alibaba.fastjson2;
+    requires java.logging;
     opens com.search to javafx.fxml;
     exports com.search;
 }

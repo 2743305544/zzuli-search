@@ -27,6 +27,8 @@ import javafx.scene.shape.CubicCurve;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Path;
 import javafx.util.Duration;
+import org.kordamp.ikonli.antdesignicons.AntDesignIconsOutlined;
+import org.kordamp.ikonli.javafx.FontIcon;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -53,6 +55,11 @@ public class HelloController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        FontIcon icon = new FontIcon(AntDesignIconsOutlined.FORWARD);
+        // 假设有这个方法来设置大小
+        icon.setIconSize(20);
+        ToButton.setGraphic(icon);
+
         new Thread(() -> {
             Canvas canvas = new Canvas(1020, 200);
             GraphicsContext gc = canvas.getGraphicsContext2D();

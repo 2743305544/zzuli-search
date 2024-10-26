@@ -22,6 +22,8 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import org.kordamp.ikonli.antdesignicons.AntDesignIconsOutlined;
+import org.kordamp.ikonli.javafx.FontIcon;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -51,11 +53,21 @@ public class Msg1Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        FadeTransitionTools.fadeout(indexPane);
-        ArrayList<Items> items = new ArrayList<>();
-        items.add(new Items("11","11"));
-        ObservableList<String> DataList = ListItemsToObservableList(strList,items);
-        List.setItems(DataList);
+        new Thread(() -> {
+            FontIcon icon = new FontIcon(AntDesignIconsOutlined.SEARCH);
+            icon.setIconSize(12);
+            searchButton.setGraphic(icon);
+            FontIcon icon1 = new FontIcon(AntDesignIconsOutlined.ARROW_LEFT);
+            icon1.setIconSize(20);
+            BackButton.setGraphic(icon1);
+        }).start();
+        new Thread(() -> {
+            FadeTransitionTools.fadeout(indexPane);
+            ArrayList<Items> items = new ArrayList<>();
+            items.add(new Items("11","11"));
+            ObservableList<String> DataList = ListItemsToObservableList(strList,items);
+            List.setItems(DataList);
+        }).start();
         MyLabel.setText("公告通知");
     }
     @FXML

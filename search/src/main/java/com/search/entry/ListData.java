@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ListData {
     private String title;
-    private String Date;
+    private String date;
     private String link;
 }
