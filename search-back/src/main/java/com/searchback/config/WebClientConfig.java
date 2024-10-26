@@ -10,8 +10,10 @@ import org.springframework.context.annotation.Scope;
 /**
  * @author 34011 shiyi
  */
+
 @Configuration
 public class WebClientConfig {
+
     @Bean()
     @Scope ("prototype")
     public  WebClient getWebClient() {
