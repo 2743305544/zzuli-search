@@ -21,6 +21,7 @@ module com.search {
     requires okhttp3;
     requires com.alibaba.fastjson2;
     requires java.logging;
+    requires org.slf4j;
     opens com.search to javafx.fxml;
     exports com.search;
 }

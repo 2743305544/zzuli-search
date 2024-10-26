@@ -4,10 +4,15 @@ import animatefx.animation.BounceIn;
 import animatefx.animation.BounceInDown;
 import animatefx.animation.Swing;
 import animatefx.animation.Wobble;
+import com.alibaba.fastjson2.JSON;
+import com.alibaba.fastjson2.JSONObject;
+import com.alibaba.fastjson2.TypeReference;
 import com.search.constant.SystemConstants;
 import com.search.dynamic.DynamicWave;
 import com.search.dynamic.FadeTransitionTools;
+import com.search.entry.ListData;
 import com.search.utils.Jumputils;
+import com.search.utils.OkHttpUtil;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
@@ -20,14 +25,20 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import okhttp3.OkHttpClient;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class IndexController implements Initializable {
+/**
+ * @author 34011
+ */
+public class IndexController implements Initializable{
 
     @FXML
     private MFXButton button1,button2,button3,button4,button5,button6,button7,button8;
+
+
 
     @FXML
     private AnchorPane wavePane;

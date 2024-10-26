@@ -2,6 +2,8 @@ package com.search.utils;
 
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
+import com.alibaba.fastjson2.TypeReference;
+import com.search.entry.ListData;
 import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
@@ -37,6 +39,7 @@ public class OkHttpUtil {
         return builder.build();
     }
 
+
     /**
      * get请求
      * @param okHttpClient
@@ -52,6 +55,7 @@ public class OkHttpUtil {
         log.info("okHttpClient get url:{},request responseData====> {}", url, responseData);
         return responseData;
     }
+
 
     public static String get(OkHttpClient okHttpClient, String url) {
         Headers headers = new Headers.Builder().build();
