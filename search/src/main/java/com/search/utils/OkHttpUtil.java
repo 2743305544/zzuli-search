@@ -10,8 +10,7 @@ import okhttp3.*;
 import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
@@ -69,7 +68,8 @@ public class OkHttpUtil {
      */
     public static String get(String url) {
         OkHttpClient okHttpClient = getOkHttpClient();
-        Headers headers = new Headers.Builder().build();
+        Headers headers = new Headers.Builder()
+                .build();
         return get( okHttpClient, url, headers);
     }
 
@@ -120,8 +120,26 @@ public class OkHttpUtil {
      * @param request
      * @return
      */
+
+
     public static String request(OkHttpClient okHttpClient, String url, Request request) {
         String responseData = "";
+        try (Response response = okHttpClient.newCall(request).execute()) {
+            if (response != null && response.body() != null) {
+                return response.body().string();
+            }
+        } catch (Exception e) {
+            log.error("okHttpClient getResponse error.url:{}", url, e);
+        }
+
+        return responseData;
+    }
+    public static String zzuliDataSearch(OkHttpClient okHttpClient, String url, String keyword) {
+        String responseData = "";
+        Request request = new Request.Builder()
+                .url(url)
+                .post(new FormBody.Builder().add("searchText", keyword).build())
+                .build();
         try (Response response = okHttpClient.newCall(request).execute()) {
             if (response != null && response.body() != null) {
                 return response.body().string();

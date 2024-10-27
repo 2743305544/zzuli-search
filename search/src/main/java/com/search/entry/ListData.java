@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 public class ListData {
     private String title;
     private String date;
-    private String link;
+    private String url;
 }

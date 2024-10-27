@@ -17,11 +17,14 @@ module com.search {
     requires org.kordamp.ikonli.antdesignicons;
     requires org.kordamp.ikonli.core;
     requires spring.beans;
-    requires org.apache.commons.io;
     requires okhttp3;
+    requires org.apache.commons.io;
     requires com.alibaba.fastjson2;
     requires java.logging;
     requires org.slf4j;
+    requires spring.core;
+    requires jdk.httpserver;
     opens com.search to javafx.fxml;
     exports com.search;
+    exports com.search.entry;
 }

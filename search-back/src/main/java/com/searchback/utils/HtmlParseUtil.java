@@ -61,7 +61,7 @@ public class HtmlParseUtil {
         Element first = document.getElementById("warmp").getElementsByClass("xx").getFirst().getElementById("wp_paging_w2").getElementsByClass("all_pages").getFirst();
         System.out.println(first.text());
         allPageNum = Integer.valueOf(first.text());
-        List<Content> contentList = crawlAllPage(310);
+        List<Content> contentList = crawlAllPage(50);
 //        System.out.println(contentList);
         return contentList;
     }
@@ -101,7 +101,7 @@ public class HtmlParseUtil {
                 e.printStackTrace();
             }
         }
-        executorService.shutdown();
+//        executorService.shutdown();
         return contentList;
     }
     private String replaceLastOccurrence(String str, String target, String replacement) {

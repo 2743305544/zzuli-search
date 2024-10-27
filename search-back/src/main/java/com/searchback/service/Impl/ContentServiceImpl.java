@@ -46,12 +46,6 @@ public class ContentServiceImpl implements ContentService {
     @Override
     public void refreshAllData(WebClient webClient) {
         try {
-            esIndexUtil.deleteIndex("zzuli_data");
-        } catch (Exception e) {
-            e.printStackTrace();
-            logError(e);
-        }
-        try {
             esIndexUtil.createIndex("zzuli_data");
         } catch (IOException e) {
             e.printStackTrace();

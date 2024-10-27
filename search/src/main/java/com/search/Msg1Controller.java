@@ -12,6 +12,7 @@ import com.search.utils.OkHttpUtil;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXListView;
 import io.github.palexdev.materialfx.controls.MFXTextField;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -28,6 +29,7 @@ import javafx.stage.Stage;
 import okhttp3.OkHttpClient;
 import org.kordamp.ikonli.antdesignicons.AntDesignIconsOutlined;
 import org.kordamp.ikonli.javafx.FontIcon;
+import org.springframework.util.StringUtils;
 
 import java.net.URL;
 import java.util.HashMap;
@@ -60,6 +62,7 @@ public class Msg1Controller implements Initializable {
     @FXML
     private MFXButton BackButton;
 
+    private final OkHttpClient okHttpClient = OkHttpUtil.getOkHttpClient(300, 300, 300);
 
     ObservableList<String> strList = FXCollections.observableArrayList();
 
@@ -68,15 +71,16 @@ public class Msg1Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-         OkHttpClient okHttpClient = OkHttpUtil.getOkHttpClient(300, 300, 300);
-        if (trig == 0) {
-            OkHttpUtil.get(okHttpClient,"http://localhost:9090/api/refreshAllData");
-            trig = 1;
-        }
+        new Thread(() -> {
+            if (trig == 0) {
+                String s = OkHttpUtil.get(okHttpClient, "http://localhost:9090/api/refreshAllData");
+                System.out.println(s);
+                trig = 1;
+            }
+        }).start();
 //        TypeReference<Response<ListData>> typeReference =new TypeReference<>() {};
 //        Response<ListData> listDataResponse = JSON.parseObject(s, typeReference);
 //        java.util.List<ListData> data = listDataResponse.getData();
-
 
         new Thread(() -> {
             FontIcon icon = new FontIcon(AntDesignIconsOutlined.SEARCH);
@@ -89,14 +93,20 @@ public class Msg1Controller implements Initializable {
         new Thread(() -> {
 //            java.util.List<Items> items1 = BeanCopyUtils.copyBeanList(data, Items.class);
             String s = OkHttpUtil.get(okHttpClient, "http://localhost:9090/api/getMsg1");
+            System.out.println(s);
             TypeReference<Response<ListData>> typeReference =new TypeReference<>() {};
             Response<ListData> listDataResponse = JSON.parseObject(s, typeReference);
+            System.out.println(listDataResponse);
              data.set(listDataResponse.getData());
-             collect = listDataResponse.getData().stream().collect(Collectors.toMap(ListData::getTitle, ListData::getLink));
-
+             collect = listDataResponse.getData().stream().collect(Collectors.toMap(ListData::getTitle, ListData::getUrl));
+            System.out.println(data.get());
             java.util.List<Items> items = BeanCopyUtils.copyBeanList(data.get(), Items.class);
             ObservableList<String> dataList = ListItemsToObservableList(strList,items);
-            List.setItems(dataList);
+            System.out.println(dataList);
+            Platform.runLater(() -> {
+                List.getItems().clear();
+                List.setItems(dataList);
+            });
         }).start();
         MyLabel.setText("公告通知");
         FadeTransitionTools.fadeout(indexPane);
@@ -109,19 +119,32 @@ public class Msg1Controller implements Initializable {
     @FXML
     public void ListClicked(MouseEvent event) {
         String selectedValue = List.getSelectionModel().getSelectedValue();
-        System.out.println(selectedValue);
-        Stage WebStage = new Stage();
-        WebView webView = new WebView();
-        WebEngine webEngine = webView.getEngine();
-        webEngine.setJavaScriptEnabled(true);
+        if(StringUtils.hasText(selectedValue)) {
+            System.out.println(selectedValue);
+            Stage WebStage = new Stage();
+            WebView webView = new WebView();
+            WebEngine webEngine = webView.getEngine();
+            webEngine.setJavaScriptEnabled(true);
 //        webEngine.executeScript(Jsutils.readJsFileAsString("h5player.js"));//加载脚本
-        webEngine.setUserAgent("Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 Chrome/44.0.2403.155 Safari/537.36");
-        String selectLink = collect.get(selectedValue);
-        webEngine.load(selectLink);
-        StackPane webRoot = new StackPane();
-        webRoot.getChildren().add(webView);
-        Scene webScene = new Scene(webRoot,1040,620);
-        WebStage.setScene(webScene);
-        WebStage.show();
+            webEngine.setUserAgent("Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 Chrome/44.0.2403.155 Safari/537.36");
+            String selectLink = collect.get(selectedValue.substring(0,selectedValue.length()-14));
+            System.out.println(selectLink);
+            webEngine.load(selectLink);
+            StackPane webRoot = new StackPane();
+            webRoot.getChildren().add(webView);
+            Scene webScene = new Scene(webRoot,1040,620);
+            WebStage.setScene(webScene);
+            WebStage.show();
+        }
+    }
+    @FXML
+    public void tosearch(ActionEvent event) {
+        String s = OkHttpUtil.zzuliDataSearch(okHttpClient, "http://localhost:9090/api/searchMsg1", TextField.getText());
+        TypeReference<Response<ListData>> typeReference =new TypeReference<>() {};
+        Response<ListData> listDataResponse = JSON.parseObject(s, typeReference);
+        collect = listDataResponse.getData().stream().collect(Collectors.toMap(ListData::getTitle, ListData::getUrl));
+        java.util.List<Items> items = BeanCopyUtils.copyBeanList(listDataResponse.getData(), Items.class);
+        ObservableList<String> strList1 = ListItemsToObservableList(strList, items);
+        List.setItems(strList1);
     }
 }

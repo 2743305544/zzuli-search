@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Listutils {
     public static ObservableList<String> ListItemsToObservableList(ObservableList<String> list, List<Items> listItems) {
+        list.clear();
         for (Items listItem : listItems) {
             list.add(listItem.getTitle()+"--->"+listItem.getDate());
         }
