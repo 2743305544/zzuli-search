@@ -3,16 +3,24 @@ package com.search.dynamic;
 import javafx.scene.canvas.GraphicsContext;
 
 public class DynamicWave {
-    private static final double A = 30; // 振幅
-    private static final double W = 1 / 200.0; // 频率
-    private static final double A2 = 30; // 第二波的振幅
-    private static final double W2 = 1 / 300.0; // 第二波的频率
+    // 振幅
+    private static final double A = 30;
+    // 频率
+    private static final double W = 1 / 200.0;
+    // 第二波的振幅
+    private static final double A2 = 30;
+    // 第二波的频率
+    private static final double W2 = 1 / 300.0;
 
-    private static double Q = 0; // 第一波相位
-    private static double Q2 = 0; // 第二波相位
+    // 第一波相位
+    private static double Q = 0;
+    // 第二波相位
+    private static double Q2 = 0;
     public static void draw(GraphicsContext gc, double width, double height) {
-        double offsetX = 0; // 向右偏移100个单位
-        double offsetY = 0;  // 向下偏移50个单位
+        // 向右偏移100个单位
+        double offsetX = 0;
+        // 向下偏移50个单位
+        double offsetY = 0;
         // 清空画布
         gc.clearRect(0, 0, width, height);
 
@@ -41,7 +49,9 @@ public class DynamicWave {
         gc.fill();
 
         // 更新相位
-        Q -= 0.01; // 第一波的速度
-        Q2 -= 0.02; // 第二波的速度
+        // 第一波的速度
+        Q -= 0.01;
+        // 第二波的速度
+        Q2 -= 0.02;
     }
 }

@@ -1,0 +1,28 @@
+#MainPane {
+    -fx-display: box; /* 使用FX的box模型代替flex */
+    -fx-flex-direction: column; /* 此属性在JavaFX中没有直接对应, 需要通过布局方式实现 */
+    -fx-spacing: 10px; /* 设置子元素间的间距 */
+    -fx-padding: 0 2em 0.4em 2em; /* 按照顺序设置内边距（上，右，下，左） */
+    -fx-background-color: #171717;
+    -fx-background-radius: 7px; /* 设置背景圆角 */
+    -fx-transition: all 0.4s ease-in-out; /* 过渡效果（在JavaFX中，动画的实现方式不同，需单独处理） */
+}
+#IndexLabel,#indexLabel1,#indexLabel2,#indexLabel3 {
+    -fx-margin: 2em; /* 设置外边距 */
+    -fx-text-fill: rgb(255, 255, 255); /* 设置文本颜色 */
+    -fx-font-size: 1.5em; /* 设置字体大小 */
+    -fx-font-weight: bold;
+}
+#MainPane:hover {
+    -fx-opacity: 1;
+}
+#Myavatar{
+    -fx-background-radius: 30px; /* 设置背景圆角 */
+    -fx-pref-width: 60px; /* 设置宽度 */
+    -fx-pref-height: 60px; /* 设置高度 */
+    -fx-background-color: transparent; /* 设置背景颜色为透明 */
+    -fx-border-color: black; /* 设置边框颜色 */
+    -fx-border-width: 1px; /* 设置边框宽度 */
+    -fx-background-position: center; /* 设置背景图像位置为中心 */
+    -fx-background-size: 60px 60px; /* 设置背景图像大小 */
+}

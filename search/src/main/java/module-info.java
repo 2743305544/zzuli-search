@@ -1,9 +1,7 @@
 module com.search {
-    requires javafx.web;
+    requires javafx.base;
     requires animatefx;
-    requires javafx.controls;
     requires javafx.graphics;
-    requires javafx.swing;
     requires eu.iamgio.animated;
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
@@ -24,6 +22,10 @@ module com.search {
     requires org.slf4j;
     requires spring.core;
     requires jdk.httpserver;
+    requires javafx.controls;
+    requires javafx.web;
+    requires javafx.media;
+    requires javafx.swing;
     opens com.search to javafx.fxml;
     exports com.search;
     exports com.search.entry;

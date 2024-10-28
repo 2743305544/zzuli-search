@@ -71,7 +71,7 @@ public class HelloController implements Initializable {
             };
             timer.start();
             twoPane.getChildren().add(canvas);
-            WelcomePane.getChildren().addAll(twoPane, title,ToButton);
+//            WelcomePane.getChildren().addAll(twoPane, title,ToButton);
         }).start();
         new Swing(title).play();
         SequentialAnimationFX sequentialAnimationFX = new SequentialAnimationFX(title, new BounceIn(), new Flash());

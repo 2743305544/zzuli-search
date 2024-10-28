@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="MainPane" onKeyPressed="#KeyEnter" prefHeight="620.0" prefWidth="1040.0" stylesheets="@../../css/aboutme.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.search.AboutMeController">
+   <children>
+      <ImageView fx:id="Myavatar" fitHeight="184.0" fitWidth="200.0" layoutX="119.0" layoutY="100.0" onMouseClicked="#clickAvatar" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../img/avatar.jpg" />
+         </image>
+         <effect>
+            <Reflection />
+         </effect>
+      </ImageView>
+      <Label fx:id="IndexLabel" layoutX="98.0" layoutY="544.0" prefHeight="62.0" prefWidth="602.0" text="github地址：https://github.com/2743305544/zzuli-search">
+         <effect>
+            <Reflection />
+         </effect>
+      </Label>
+      <Label fx:id="indexLabel1" layoutX="374.0" layoutY="50.0" prefHeight="50.0" prefWidth="576.0" text="本项目前端采用javafx23+Spring6+ikonli+materialfx+AnimateFX">
+         <effect>
+            <Reflection />
+         </effect>
+      </Label>
+      <Label fx:id="indexLabel2" layoutX="374.0" layoutY="142.0" prefHeight="50.0" prefWidth="545.0" text="后端采用SpringBoot3+elasticsearch8+htmlunit">
+         <effect>
+            <Reflection />
+         </effect>
+      </Label>
+      <Label fx:id="indexLabel3" layoutX="374.0" layoutY="247.0" prefHeight="50.0" prefWidth="576.0" text="前后端将尽量采用最新的graalvm进行构建">
+         <effect>
+            <Reflection />
+         </effect>
+      </Label>
+      <Label layoutX="368.0" layoutY="369.0" prefHeight="33.0" prefWidth="576.0" text="由于本人学业繁忙，本项目也只是从中抽空完成的，而且本人还只是刚学java的小菜鸡，未能实现所有功能" textFill="#e4dede" />
+      <Label layoutX="368.0" layoutY="445.0" prefHeight="19.0" prefWidth="568.0" text="本项目仅限学习交流，不能用于其他用途" />
+      <Label layoutX="368.0" layoutY="412.0" prefHeight="19.0" prefWidth="568.0" text="此项目可能不会再进行更新，其他功能和之前的实现十分相似，可按自己需求修改" textFill="#ebe9e9" />
+      <Label layoutX="194.0" layoutY="85.0" prefHeight="15.0" prefWidth="35.0" text="Shiyi" textFill="#f2ecec" />
+   </children>
+</AnchorPane>

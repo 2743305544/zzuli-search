@@ -11,18 +11,23 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-<junit.version>5.10.2</junit.version>  </properties>
+<junit.version>5.10.2</junit.version>
+      <maven.compiler.source>23</maven.compiler.source>
+      <maven.compiler.target>23</maven.compiler.target>
+  </properties>
   <dependencies>
-    <dependency>
-      <groupId>org.openjfx</groupId>
-      <artifactId>javafx-controls</artifactId>
-      <version>17.0.6</version>
-    </dependency>
-    <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-graphics -->
+      <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-controls -->
+      <dependency>
+          <groupId>org.openjfx</groupId>
+          <artifactId>javafx-controls</artifactId>
+          <version>23.0.1</version>
+      </dependency>
+
+      <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-graphics -->
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-graphics</artifactId>
-      <version>23</version>
+      <version>23.0.1</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/io.github.typhon0/AnimateFX -->
     <dependency>
@@ -56,17 +61,17 @@
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-fxml</artifactId>
-      <version>17.0.6</version>
+      <version>23.0.1</version>
     </dependency>
 <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-web</artifactId>
-      <version>17.0.6</version>
+      <version>23.0.1</version>
     </dependency>
       <dependency>
         <groupId>org.openjfx</groupId>
         <artifactId>javafx-swing</artifactId>
-        <version>17.0.6</version>
+        <version>23.0.1</version>
       </dependency>
     <!-- https://mvnrepository.com/artifact/com.alibaba.fastjson2/fastjson2 -->
     <dependency>
@@ -91,7 +96,7 @@
       <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-media</artifactId>
-      <version>17.0.6</version>
+      <version>23.0.1</version>
     </dependency><dependency>
       <groupId>org.controlsfx</groupId>
       <artifactId>controlsfx</artifactId>
@@ -234,34 +239,106 @@
 <!--          <verbose>true</verbose>-->
 <!--        </configuration>-->
 <!--      </plugin>-->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>23</source>
-          <target>23</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.openjfx</groupId>
-        <artifactId>javafx-maven-plugin</artifactId>
-        <version>0.0.8</version>
-        <executions>
-          <execution>
-            <!-- Default configuration for running with: mvn clean javafx:run -->
-            <id>default-cli</id>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+        <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.13.0</version>
             <configuration>
-              <mainClass>com.search/com.search.HelloApplication</mainClass>
-              <launcher>app</launcher>
-              <jlinkZipName>app</jlinkZipName>
-              <jlinkImageName>app</jlinkImageName>
-              <noManPages>true</noManPages>
-              <stripDebug>true</stripDebug>
-              <noHeaderFiles>true</noHeaderFiles>
+                <source>23</source>
+                <target>23</target>
+                <compilerArguments>
+                    <extdirs>${project.basedir}/target/lib</extdirs>
+                </compilerArguments>
             </configuration>
-          </execution>
-        </executions>
-      </plugin>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <version>3.6.0</version>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>shade</goal>
+                    </goals>
+                    <configuration>
+                        <transformers>
+                            <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                <mainClass>com.search.JavaFxBooter</mainClass>
+                            </transformer>
+                        </transformers>
+
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+
+<!--        <plugin>-->
+<!--        <groupId>org.apache.maven.plugins</groupId>-->
+<!--        <artifactId>maven-jar-plugin</artifactId>-->
+<!--          <version>3.4.2</version>-->
+<!--        <configuration>-->
+<!--            <archive>-->
+<!--                <manifest>-->
+<!--                    <addDefaultImplementationEntries>true</addDefaultImplementationEntries>-->
+<!--                    <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>-->
+<!--                    <mainClass>com.search.HelloApplication</mainClass> &lt;!&ndash; 替换为你的主类 &ndash;&gt;-->
+<!--                </manifest>-->
+<!--            </archive>-->
+<!--        </configuration>-->
+<!--      </plugin>-->
+<!--                <plugin>-->
+<!--                    <artifactId>maven-assembly-plugin</artifactId>-->
+<!--                    <version>3.7.1</version>-->
+<!--                    <configuration>-->
+<!--                        <descriptorRefs>-->
+<!--                            <descriptorRef>jar-with-dependencies</descriptorRef>-->
+<!--                        </descriptorRefs>-->
+<!--                        <archive>-->
+<!--                            <manifest>-->
+<!--                                <mainClass>com.search.HelloApplication</mainClass>-->
+<!--                            </manifest>-->
+<!--                        </archive>-->
+<!--                    </configuration>-->
+<!--                    <executions>-->
+<!--                        <execution>-->
+<!--                            <id>make-assembly</id>-->
+<!--                            <phase>package</phase>-->
+<!--                            <goals>-->
+<!--                                <goal>single</goal>-->
+<!--                            </goals>-->
+<!--                        </execution>-->
+<!--                    </executions>-->
+<!--                </plugin>-->
+<!--        <plugin>-->
+<!--            <groupId>org.apache.maven.plugins</groupId>-->
+<!--            <artifactId>maven-dependency-plugin</artifactId>-->
+<!--            <version>3.8.1</version>-->
+<!--            <executions>-->
+<!--                <execution>-->
+<!--                    <id>copy</id>-->
+<!--                    <phase>package</phase>-->
+<!--                    <goals>-->
+<!--                        <goal>copy-dependencies</goal>-->
+<!--                    </goals>-->
+<!--                    <configuration>-->
+<!--                        <outputDirectory>-->
+<!--                            ${project.build.directory}/lib-->
+<!--                        </outputDirectory>-->
+<!--                    </configuration>-->
+<!--                </execution>-->
+<!--            </executions>-->
+<!--        </plugin>-->
+<!--        <plugin>-->
+<!--        <groupId>org.openjfx</groupId>-->
+<!--        <artifactId>javafx-maven-plugin</artifactId>-->
+<!--        <version>0.0.8</version>-->
+<!--            <configuration>-->
+<!--&lt;!&ndash;              <mainClass>com.search/com.search.HelloApplication</mainClass>&ndash;&gt;-->
+<!--                <mainClass>com.search.HelloApplication</mainClass>-->
+<!--            </configuration>-->
+<!--      </plugin>-->
     </plugins>
   </build>
 </project>
