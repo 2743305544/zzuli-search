@@ -15,7 +15,7 @@ import java.io.Serializable;
 @Getter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseResult<T> implements Serializable {
-    private Integer code;
+    private int code;
     private String msg;
     private T data;
 

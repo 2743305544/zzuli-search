@@ -50,8 +50,4 @@ public class AboutMeController implements Initializable {
         new JackInTheBox(Myavatar).play();
     }
 
-    //计划整活
-//    public void KeyEnter(KeyEvent keyEvent) {
-//
-//    }
 }

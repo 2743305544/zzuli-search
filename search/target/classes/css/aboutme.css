@@ -13,9 +13,9 @@
     -fx-font-size: 1.5em; /* 设置字体大小 */
     -fx-font-weight: bold;
 }
-#MainPane:hover {
-    -fx-opacity: 1;
-}
+/*#MainPane:hover {*/
+/*    -fx-opacity: 1;*/
+/*}*/
 #Myavatar{
     -fx-background-radius: 30px; /* 设置背景圆角 */
     -fx-pref-width: 60px; /* 设置宽度 */

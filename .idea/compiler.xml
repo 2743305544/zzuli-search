@@ -14,7 +14,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="search" options="-extdirs E:\javaprogram\zzuli-search\search/target/lib" />
+      <module name="search" options="" />
       <module name="search-back" options="-parameters" />
     </option>
   </component>

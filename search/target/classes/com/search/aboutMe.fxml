@@ -6,7 +6,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="MainPane" onKeyPressed="#KeyEnter" prefHeight="620.0" prefWidth="1040.0" stylesheets="@../../css/aboutme.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.search.AboutMeController">
+<AnchorPane fx:id="MainPane" prefHeight="620.0" prefWidth="1040.0" stylesheets="@../../css/aboutme.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.search.AboutMeController">
    <children>
       <ImageView fx:id="Myavatar" fitHeight="184.0" fitWidth="200.0" layoutX="119.0" layoutY="100.0" onMouseClicked="#clickAvatar" pickOnBounds="true" preserveRatio="true">
          <image>

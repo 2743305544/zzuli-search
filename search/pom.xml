@@ -92,7 +92,6 @@
           <version>4.12.0</version>
       </dependency>
 
-
       <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-media</artifactId>
@@ -194,11 +193,30 @@
       <version>6.1.14</version>
     </dependency>
 
-
   </dependencies>
 
   <build>
     <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <version>3.6.0</version>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>shade</goal>
+                    </goals>
+                    <configuration>
+                        <transformers>
+                            <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                <mainClass>com.search.JavaFxBooter</mainClass>
+                            </transformer>
+                        </transformers>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
 <!--      <plugin>-->
 <!--        <groupId>org.graalvm.buildtools</groupId>-->
 <!--        <artifactId>native-maven-plugin</artifactId>-->
@@ -227,7 +245,7 @@
 <!--          </agent>-->
 <!--          <imageName>graal-vm-demo</imageName>-->
 <!--          &lt;!&ndash; 启动类 &ndash;&gt;-->
-<!--          <mainClass>com.search.HelloApplication</mainClass>-->
+<!--          <mainClass>com.search.JavaFxBooter</mainClass>-->
 <!--          <buildArgs>-->
 <!--            <buildArg>&#45;&#45;verbose</buildArg>-->
 <!--            <buildArg>-H:+AddAllCharsets</buildArg>-->
@@ -239,40 +257,61 @@
 <!--          <verbose>true</verbose>-->
 <!--        </configuration>-->
 <!--      </plugin>-->
-        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
         <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
+            <groupId>com.gluonhq</groupId>
+            <artifactId>gluonfx-maven-plugin</artifactId>
+            <version>1.0.23</version>
+            <extensions>true</extensions>
+<!--            <executions>-->
+<!--                <execution>-->
+<!--                    <goals>-->
+<!--                        <goal>package</goal>-->
+<!--                    </goals>-->
+<!--                </execution>-->
+<!--            </executions>-->
             <configuration>
-                <source>23</source>
-                <target>23</target>
-                <compilerArguments>
-                    <extdirs>${project.basedir}/target/lib</extdirs>
-                </compilerArguments>
+                <nativeImageArgs>
+                    <nativeImageArg>--verbose</nativeImageArg>
+                    <nativeImageArg>-H:+AddAllCharsets</nativeImageArg>
+                    <nativeImageArg>-H:-AddAllFileSystemProviders</nativeImageArg>
+                    <nativeImageArg>-Dfile.encoding=GBK</nativeImageArg>
+                    <nativeImageArg>-H:EnableURLProtocols=http,https</nativeImageArg>
+                    <nativeImageArg>--initialize-at-build-time=com.alibaba.fastjson2</nativeImageArg>
+                </nativeImageArgs>
+                <target>host</target>
+                <mainClass>com.search.JavaFxBooter</mainClass>
+<!--                <bundlesList>-->
+<!--                    <list>com.search</list>-->
+<!--                </bundlesList>-->
+                <reflectionList>
+                    <list>com.search.AboutMeController</list>
+                    <list>com.search.IndexController</list>
+                    <list>com.search.HelloController</list>
+                    <list>com.search.Msg1Controller</list>
+                    <list>com.search.Msg2Controller</list>
+                    <list>com.search.Msg3Controller</list>
+                    <list>com.search.Msg4Controller</list>
+                    <list>com.search.Msg5Controller</list>
+                    <list>com.search.Msg6Controller</list>
+                    <list>com.search.Msg7Controller</list>
+                </reflectionList>
             </configuration>
-        </plugin>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-shade-plugin</artifactId>
-            <version>3.6.0</version>
-            <executions>
-                <execution>
-                    <phase>package</phase>
-                    <goals>
-                        <goal>shade</goal>
-                    </goals>
-                    <configuration>
-                        <transformers>
-                            <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                <mainClass>com.search.JavaFxBooter</mainClass>
-                            </transformer>
-                        </transformers>
 
-                    </configuration>
-                </execution>
-            </executions>
         </plugin>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+<!--        <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-compiler-plugin</artifactId>-->
+<!--                <version>3.13.0</version>-->
+<!--            <configuration>-->
+<!--                <source>23</source>-->
+<!--                <target>23</target>-->
+<!--                <compilerArguments>-->
+<!--                    <extdirs>${project.basedir}/target/lib</extdirs>-->
+<!--                </compilerArguments>-->
+<!--            </configuration>-->
+<!--        </plugin>-->
+
 
 <!--        <plugin>-->
 <!--        <groupId>org.apache.maven.plugins</groupId>-->
@@ -297,7 +336,7 @@
 <!--                        </descriptorRefs>-->
 <!--                        <archive>-->
 <!--                            <manifest>-->
-<!--                                <mainClass>com.search.HelloApplication</mainClass>-->
+<!--                                <mainClass>com.search.JavaFxBooter</mainClass>-->
 <!--                            </manifest>-->
 <!--                        </archive>-->
 <!--                    </configuration>-->
@@ -311,34 +350,15 @@
 <!--                        </execution>-->
 <!--                    </executions>-->
 <!--                </plugin>-->
-<!--        <plugin>-->
-<!--            <groupId>org.apache.maven.plugins</groupId>-->
-<!--            <artifactId>maven-dependency-plugin</artifactId>-->
-<!--            <version>3.8.1</version>-->
-<!--            <executions>-->
-<!--                <execution>-->
-<!--                    <id>copy</id>-->
-<!--                    <phase>package</phase>-->
-<!--                    <goals>-->
-<!--                        <goal>copy-dependencies</goal>-->
-<!--                    </goals>-->
-<!--                    <configuration>-->
-<!--                        <outputDirectory>-->
-<!--                            ${project.build.directory}/lib-->
-<!--                        </outputDirectory>-->
-<!--                    </configuration>-->
-<!--                </execution>-->
-<!--            </executions>-->
-<!--        </plugin>-->
-<!--        <plugin>-->
-<!--        <groupId>org.openjfx</groupId>-->
-<!--        <artifactId>javafx-maven-plugin</artifactId>-->
-<!--        <version>0.0.8</version>-->
-<!--            <configuration>-->
-<!--&lt;!&ndash;              <mainClass>com.search/com.search.HelloApplication</mainClass>&ndash;&gt;-->
-<!--                <mainClass>com.search.HelloApplication</mainClass>-->
-<!--            </configuration>-->
-<!--      </plugin>-->
+        <plugin>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-maven-plugin</artifactId>
+        <version>0.0.8</version>
+            <configuration>
+<!--              <mainClass>com.search/com.search.HelloApplication</mainClass>-->
+                <mainClass>com.search.JavaFxBooter</mainClass>
+            </configuration>
+      </plugin>
     </plugins>
   </build>
 </project>
